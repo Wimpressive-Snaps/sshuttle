@@ -1,0 +1,23 @@
+name: sshuttle
+base: core18
+version: 'git'
+summary: Transparent proxy server that works as a poor man's VPN.
+description: |
+  Where transparent proxy meets VPN meets ssh
+
+grade: stable
+confinement: strict
+
+parts:
+  sshuttle:
+    plugin: python
+    source: .
+
+apps:
+  sshuttle:
+    command: bin/sshuttle
+    plugs:
+      - home
+      - network
+      - network-bind
+      - ssh-keys
